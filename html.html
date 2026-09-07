@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div{
+            border: 1px red solid;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .div img{
+            margin: 0 auto;
+            display: block;
+        }
+        .div button{
+            margin: 0 auto;
+            display: block;
+            margin-top: 10px;
+        }
+        #more {display: none;} 
+    </style>
+</head>
+<body>
+    <h2>Első feladat</h2>
+    <button onclick="F1()">NYOMJ MEG</button>
+    <p id="f1"></p>
+
+    <h2>Második feladat</h2>
+    <button onclick="F2()">Szöveg megváltoztatása</button>
+    <p id="f2">Ez a szöveg</p>
+    <h2>Harmadik feladat</h2>
+    <button onclick="F3()">Háttérszín</button>
+    <h2>negyedik feladat</h2>
+    <div class="div" style="background-color: wheat; border-radius: 30px; max-width: 500px; border-style: groove;">
+        <img src="kep.png" id="img">
+        <button onclick="F4()">Katt</button>
+    </div>
+    <h2>ötödik feladat</h2>
+    <img src="hamburger.png" id="img2" onclick="F5()" style="width: 30px; height: 30px;">
+
+<div class="topnav">
+  <div id="linkek">
+    <a href="#news">Alma</a>
+    <a href="#contact">Körte</a>
+    <a href="#about">Asd</a>
+  </div>
+</div>
+
+    <h2>Hatodik feladat</h2>
+    <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA<span id="dots">...</span><span id="more">bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</span></p>
+    <button onclick="F6()" id="myBtn">Read more</button>
+
+    <h2>Hetedik feladat</h2>
+    <button onclick="F7()">Mód váltás</button>
+
+    <h2>Nyolcadik feladat</h2>
+            <button onclick="F8()">Katt idezet</button>
+</div>
+    <script>
+        var asd = 0;
+        let katt = 0;
+        let katt2 = 0;
+        function F1(){
+            document.getElementById('f1').innerHTML = "Az adataid sikeresen ellopva! Kérem ne jelentse be az oldalt!"
+        }
+        function F2(){
+            document.getElementById('f2').innerHTML = "A szöveg megváltozott!"
+        }
+        function F3(){
+            const list = ['RED', 'GREEN', 'BLUE', 'WHITE']
+            document.body.style.background = list[katt];
+            if(katt == 3){
+                katt = 0;
+            } else{
+            katt ++
+            }
+        }
+        function F4(){
+            katt2 ++;
+            if(katt2%2 == 0){document.getElementById("img").src ='kep2.png';} else{
+                document.getElementById("img").src ='kep.png';
+            }
+        }
+        function F5(){
+            var x = document.getElementById("linkek");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+        function F6(){
+            var dots = document.getElementById("dots");
+            var moreText = document.getElementById("more");
+            var btnText = document.getElementById("myBtn");
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more"; 
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less"; 
+                moreText.style.display = "inline";
+            }
+        }
+        function F7(){
+            asd++
+            
+            //alert(asd)
+            if((asd % 2) != 0){
+                document.body.style.backgroundColor = "Black";
+                document.body.style.color = "white";
+            }else{
+                document.body.style.backgroundColor = "White";
+                document.body.style.color = "Black";
+            }
+        }
+        function F8(){
+            const idezetek = ["Egyszer volt, holnem volt", "Abrakadabra", "Balázs: Ez egy szar", "Ez egy idézet.", "Ez is egy idézet."]
+            try{
+                alert(idezetek[Math.floor(Math.random() * 5)])
+            } catch{
+                alert("Ez egy idézet")
+            }
+            
+        }
+    </script>
+</body>
+</html>
